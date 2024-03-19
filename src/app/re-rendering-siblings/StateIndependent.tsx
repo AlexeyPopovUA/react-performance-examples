@@ -1,8 +1,9 @@
 import React from "react";
+import {NonClickableItem} from "@/app/shared/NonClickableItem";
 
 const StateIndependent = () => {
     console.log("StateIndependent");
-  return <div>StateIndependent</div>;
+  return <NonClickableItem className="mb-4">StateIndependent</NonClickableItem>;
 };
 
 export default StateIndependent;

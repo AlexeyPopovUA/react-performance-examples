@@ -1,4 +1,5 @@
 import React from "react";
+import {ClickableItem} from "@/app/shared/ClickableItem";
 
 type Props = {
     variant: string;
@@ -7,7 +8,7 @@ type Props = {
 
 const CallbackDependentCached = (props: Props) => {
     console.log(`CallbackDependentCached ${props.variant}`);
-  return <div className="p-4 rounded-md bg-amber-600 cursor-pointer mb-4" onClick={props.callback}>CallbackDependentCached {props.variant? ` + ${props.variant}` : ""}</div>;
+  return <ClickableItem className="mb-4" onClick={props.callback}>CallbackDependentCached {props.variant? ` + ${props.variant}` : ""}</ClickableItem>;
 }
 
 export default React.memo(CallbackDependentCached);

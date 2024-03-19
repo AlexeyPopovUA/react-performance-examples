@@ -4,6 +4,7 @@ import {useCallback, useState} from "react";
 import StateDependent from "@/app/caching-callback/StateDependent";
 import CallbackDependent from "@/app/caching-callback/CallbackDependent";
 import CallbackDependentCached from "@/app/caching-callback/CallbackDependentCached";
+import {ExampleBox} from "@/app/shared/ExampleBox";
 
 export const Example = () => {
     console.log("Example");
@@ -18,11 +19,11 @@ export const Example = () => {
         setValue(v => v + 1);
     }, []);
 
-    return <div className="w-1/2 h-1/2 p-4 bg-amber-50 rounded-md">
+    return <ExampleBox>
         <StateDependent externalValue={value}/>
         <CallbackDependent callback={sharedCallback} variant="sharedCallback"/>
         <CallbackDependentCached callback={sharedCallback} variant="sharedCallback"/>
         <CallbackDependent callback={sharedCallbackCached} variant="sharedCallbackCached"/>
         <CallbackDependentCached callback={sharedCallbackCached} variant="sharedCallbackCached"/>
-    </div>;
+    </ExampleBox>;
 }

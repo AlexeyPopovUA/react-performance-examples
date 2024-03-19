@@ -8,7 +8,10 @@ export default function Home() {
                   Explore performance improvements of components with callbacks as properties
               </p>
           </div>
-          <Example/>
+          <div className="container">
+
+              <Example/>
+          </div>
       </main>
   );
 }
