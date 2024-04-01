@@ -2,8 +2,8 @@
 
 import {useState} from "react";
 import StateDependentCounter from "@/app/shared/StateDependentCounter";
-import StateIndependent from "@/app/re-rendering-siblings/StateIndependent";
-import StateIndependentCached from "@/app/re-rendering-siblings/StateIndependentCached";
+import StateIndependent from "@/app/examples/re-rendering-siblings/StateIndependent";
+import StateIndependentCached from "@/app/examples/re-rendering-siblings/StateIndependentCached";
 import {ExampleBox} from "@/app/shared/ExampleBox";
 import {ClickableItem} from "@/app/shared/ClickableItem";
 

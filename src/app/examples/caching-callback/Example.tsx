@@ -1,8 +1,8 @@
 "use client";
 
 import {useCallback, useState} from "react";
-import CallbackDependent from "@/app/caching-callback/CallbackDependent";
-import CallbackDependentCached from "@/app/caching-callback/CallbackDependentCached";
+import CallbackDependent from "@/app/examples/caching-callback/CallbackDependent";
+import CallbackDependentCached from "@/app/examples/caching-callback/CallbackDependentCached";
 import {ExampleBox} from "@/app/shared/ExampleBox";
 import StateDependentCounter from "@/app/shared/StateDependentCounter";
 
