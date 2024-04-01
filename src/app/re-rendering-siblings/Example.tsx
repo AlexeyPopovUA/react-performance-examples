@@ -1,7 +1,7 @@
 "use client";
 
 import {useState} from "react";
-import StateDependent from "@/app/re-rendering-siblings/StateDependent";
+import StateDependentCounter from "@/app/shared/StateDependentCounter";
 import StateIndependent from "@/app/re-rendering-siblings/StateIndependent";
 import StateIndependentCached from "@/app/re-rendering-siblings/StateIndependentCached";
 import {ExampleBox} from "@/app/shared/ExampleBox";
@@ -13,7 +13,7 @@ export const Example = () => {
     const [value, setValue] = useState(0);
 
     return <ExampleBox>
-        <StateDependent externalValue={value}/>
+        <StateDependentCounter externalValue={value}/>
         <ClickableItem className="mb-4" onClick={() => {
             setValue(v => v + 1);
         }}>Click me</ClickableItem>

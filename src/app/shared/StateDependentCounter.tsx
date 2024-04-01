@@ -5,9 +5,9 @@ type Props = {
     externalValue: number;
 }
 
-const StateDependent = (props: Props) => {
-    console.log("StateDependent");
+const StateDependentCounter = (props: Props) => {
+    console.log("StateDependentCounter");
     return <Cell><Counter value={props.externalValue}/></Cell>;
 }
 
-export default StateDependent;
+export default StateDependentCounter;

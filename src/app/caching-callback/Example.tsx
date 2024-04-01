@@ -1,10 +1,10 @@
 "use client";
 
 import {useCallback, useState} from "react";
-import StateDependent from "@/app/caching-callback/StateDependent";
 import CallbackDependent from "@/app/caching-callback/CallbackDependent";
 import CallbackDependentCached from "@/app/caching-callback/CallbackDependentCached";
 import {ExampleBox} from "@/app/shared/ExampleBox";
+import StateDependentCounter from "@/app/shared/StateDependentCounter";
 
 export const Example = () => {
     console.log("Example");
@@ -20,7 +20,7 @@ export const Example = () => {
     }, []);
 
     return <ExampleBox>
-        <StateDependent externalValue={value}/>
+        <StateDependentCounter externalValue={value}/>
         <CallbackDependent callback={sharedCallback} variant="sharedCallback"/>
         <CallbackDependentCached callback={sharedCallback} variant="sharedCallback"/>
         <CallbackDependent callback={sharedCallbackCached} variant="sharedCallbackCached"/>
