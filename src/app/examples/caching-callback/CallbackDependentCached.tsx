@@ -1,14 +1,18 @@
-import React from "react";
-import {ClickableItem} from "@/app/shared/ClickableItem";
+import React from 'react';
+import { ClickableItem } from '@/app/shared/ClickableItem';
 
 type Props = {
-    variant: string;
-    callback: () => void;
-}
+  variant: string;
+  callback: () => void;
+};
 
-const CallbackDependentCached = (props: Props) => {
-    console.log(`CallbackDependentCached ${props.variant}`);
-  return <ClickableItem className="mb-4" onClick={props.callback}>CallbackDependentCached {props.variant? ` + ${props.variant}` : ""}</ClickableItem>;
-}
+const CallbackDependent = (props: Props) => {
+  console.log(`React.memo(CallbackDependent) ${props.variant}`);
+  return (
+    <ClickableItem className="mb-4" onClick={props.callback}>
+      React.memo(CallbackDependent) {props.variant ? ` + ${props.variant}` : ''}
+    </ClickableItem>
+  );
+};
 
-export default React.memo(CallbackDependentCached);
+export default React.memo(CallbackDependent);

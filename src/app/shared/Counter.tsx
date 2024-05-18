@@ -1,5 +1,9 @@
 type Props = {
-    value: number;
-}
+  value: number;
+};
 
-export const Counter = (props: Props) => <div className="rounded-full w-20 h-20 border-4 border-amber-500 flex justify-center items-center text-2xl">{props.value}</div>
+export const Counter = (props: Props) => (
+  <div className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-amber-500 text-2xl">
+    {props.value}
+  </div>
+);

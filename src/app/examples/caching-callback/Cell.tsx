@@ -1,4 +1,5 @@
-import {PropsWithChildren} from "react";
+import { PropsWithChildren } from 'react';
 
-export const Cell = (props: PropsWithChildren<{}>) => <div
-    className="flex flex-row align-middle justify-center mb-4">{props.children}</div>
+export const Cell = (props: PropsWithChildren<{}>) => (
+  <div className="mb-4 flex flex-row justify-center align-middle">{props.children}</div>
+);

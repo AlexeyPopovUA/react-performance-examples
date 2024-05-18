@@ -1,14 +1,18 @@
-import React from "react";
-import {ClickableItem} from "@/app/shared/ClickableItem";
+import React from 'react';
+import { ClickableItem } from '@/app/shared/ClickableItem';
 
 type Props = {
-    variant: string;
-    callback: () => void;
-}
+  variant: string;
+  callback: () => void;
+};
 
 const CallbackDependent = (props: Props) => {
-    console.log(`CallbackDependent ${props.variant}`);
-  return <ClickableItem className="mb-4" onClick={props.callback}>CallbackDependent  {props.variant? ` + ${props.variant}` : ""}</ClickableItem>;
-}
+  console.log(`CallbackDependent ${props.variant}`);
+  return (
+    <ClickableItem className="mb-4" onClick={props.callback}>
+      CallbackDependent {props.variant ? ` + ${props.variant}` : ''}
+    </ClickableItem>
+  );
+};
 
 export default CallbackDependent;

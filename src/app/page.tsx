@@ -1,9 +1,9 @@
 import { HomeNavLink } from '@/app/HomeNavLink';
-import type {Metadata} from "next";
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Home page',
-    description: 'Bla bla',
+  title: 'Home page',
+  description: 'Bla bla',
 };
 
 export default function Home() {
