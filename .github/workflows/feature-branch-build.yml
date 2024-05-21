@@ -1,0 +1,59 @@
+name: Feature branch build
+
+on:
+  push:
+    branches:
+      - '**'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  DEFAULT_BRANCH: main
+  AWS_HOSTING_S3_BUCKET: "react-performance-examples"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Prepare variables
+        run: echo SAFE_SOURCE_NAME=$(echo "${{ github.ref_name }}" | sed -r 's/[/.@_]+/-/g') >> $GITHUB_ENV
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Checks
+        run: npm run lint
+
+      - name: Build random branch
+        run: |
+          npm run build
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: eu-west-1
+          role-to-assume: ${{ vars.AWS_AUTH_ROLE }}
+
+#      - name: Publish web-app to S3
+#        if: env.SAFE_SOURCE_NAME == env.DEFAULT_BRANCH
+#        shell: bash {0}
+#        run: |
+#          set -e
+#          aws s3 rm --recursive s3://${{ env.S3_HOSTING_BUCKET }}/${{ env.SAFE_SOURCE_NAME }}/
+#          aws s3 sync ./out/ s3://${{ env.S3_HOSTING_BUCKET }}/${{ env.SAFE_SOURCE_NAME }} --delete
