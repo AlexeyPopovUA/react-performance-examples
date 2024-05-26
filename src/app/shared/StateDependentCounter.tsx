@@ -7,10 +7,11 @@ type Props = {
 
 const StateDependentCounter = (props: Props) => {
   console.log('StateDependentCounter');
+
   return (
     <Cell>
       <Counter value={props.externalValue} />
-      <div className="text-gray-600r ml-4 content-center text-sm italic">StateDependentCounter</div>
+      <div className="text-gray-600r ml-4 content-center">StateDependentCounter</div>
     </Cell>
   );
 };
