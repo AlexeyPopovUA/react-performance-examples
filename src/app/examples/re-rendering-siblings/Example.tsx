@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import StateDependentCounter from '@/app/shared/StateDependentCounter';
-import StateIndependent from '@/app/examples/re-rendering-siblings/StateIndependent';
-import StateIndependentCached from '@/app/examples/re-rendering-siblings/StateIndependentCached';
+import { StateIndependent } from '@/app/examples/re-rendering-siblings/StateIndependent';
+import { StateIndependentMemo } from '@/app/examples/re-rendering-siblings/StateIndependentMemo';
 import { ExampleBox } from '@/app/shared/ExampleBox';
 import { ClickableItem } from '@/app/shared/ClickableItem';
 
@@ -24,7 +24,7 @@ export const Example = () => {
         ClickableItem
       </ClickableItem>
       <StateIndependent />
-      <StateIndependentCached />
+      <StateIndependentMemo />
     </ExampleBox>
   );
 };

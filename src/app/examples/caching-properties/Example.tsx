@@ -16,15 +16,15 @@ export const Example = () => {
     setValue((v) => v + 1);
   }, []);
 
-  const obj = {};
+  const obj = { test: 123 };
 
   return (
     <ExampleBox>
       <StateDependentCounter externalValue={value} />
       <CallbackDependentCached callback={callbackCached} variant="callbackCached" />
-      <RenderObject value={obj} />
-      <RenderObjectMemo value={obj} option={1} />
-      <RenderObjectMemoCompared value={obj} option={2} />
+      <RenderObject value={obj} variant="RenderObject" />
+      <RenderObjectMemo value={obj} variant="RenderObjectMemo" />
+      <RenderObjectMemoCompared value={obj} variant="RenderObjectMemoCompared" />
     </ExampleBox>
   );
 };

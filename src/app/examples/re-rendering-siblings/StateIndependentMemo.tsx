@@ -6,4 +6,4 @@ const StateIndependent = () => {
   return <NonClickableItem className="mb-4">React.memo(StateIndependent)</NonClickableItem>;
 };
 
-export default React.memo(StateIndependent);
+export const StateIndependentMemo = React.memo(StateIndependent);
