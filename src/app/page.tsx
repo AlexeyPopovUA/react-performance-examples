@@ -24,6 +24,11 @@ export default function Home() {
         label="Caching properties"
         description="Find out why callbacks cause re-rendering and how to do it less"
       />
+      <HomeNavLink
+        path="/examples/components-as-properties/"
+        label="Conmponents as properties"
+        description="Find out why components are NOT re-rendered when passed as properties"
+      />
     </div>
   );
 }
