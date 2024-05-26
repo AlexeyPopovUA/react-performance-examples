@@ -2,6 +2,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/app/Header';
 import React from 'react';
+import clsx from 'clsx';
+import { Footer } from '@/app/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,9 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={clsx(inter.className, 'min-h-screen')}>
         <Header />
-        <main className="container mx-auto flex min-h-screen flex-col items-center">{children}</main>
+        <main className="container mx-auto flex flex-col items-center">{children}</main>
+        <Footer />
       </body>
     </html>
   );
