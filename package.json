@@ -9,6 +9,7 @@
   "scripts": {
     "install-all": "npm i -ws --include-workspace-root",
     "dev-front": "npm run dev -w front-end",
+    "build-front": "npm run build -w front-end",
     "update-dependencies-all": "npm run -ws --include-workspace-root update-dependencies"
   },
   "devDependencies": {
