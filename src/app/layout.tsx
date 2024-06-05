@@ -15,7 +15,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(inter.className, 'min-h-screen')}>
-        <Header />
         <main className="container mx-auto flex flex-col items-center">{children}</main>
         <Footer />
       </body>

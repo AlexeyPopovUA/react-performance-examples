@@ -17,16 +17,16 @@ export default function Home() {
       <HomeNavLink
         path="/examples/caching-callback/"
         label="Caching callback"
-        description="Find out why some of properties cause re-rendering"
+        description="Find out why callbacks cause re-rendering and how to do it less"
       />
       <HomeNavLink
         path="/examples/caching-properties/"
         label="Caching properties"
-        description="Find out why callbacks cause re-rendering and how to do it less"
+        description="Find out why some of properties cause re-rendering"
       />
       <HomeNavLink
         path="/examples/components-as-properties/"
-        label="Conmponents as properties"
+        label="Components as properties"
         description="Find out why components are NOT re-rendered when passed as properties"
       />
     </div>
