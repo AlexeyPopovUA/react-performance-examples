@@ -9,7 +9,7 @@ type Props = {
 const CallbackDependent = (props: Props) => {
   console.log(`CallbackDependent ${props.variant}`);
   return (
-    <ClickableItem className="mb-4" onClick={props.callback}>
+    <ClickableItem onClick={props.callback}>
       CallbackDependent {props.variant ? ` + ${props.variant}` : ''}
     </ClickableItem>
   );

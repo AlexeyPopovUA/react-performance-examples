@@ -9,7 +9,7 @@ type Props = {
 const CallbackDependent = (props: Props) => {
   console.log(`React.memo(CallbackDependent) ${props.variant}`);
   return (
-    <ClickableItem className="mb-4" onClick={props.callback}>
+    <ClickableItem onClick={props.callback}>
       React.memo(CallbackDependent) {props.variant ? ` + ${props.variant}` : ''}
     </ClickableItem>
   );

@@ -36,9 +36,7 @@ export const SubExample = (props: SubExampleProps) => {
   return (
     <ExampleBox>
       <StateDependentCounter externalValue={value} />
-      <ClickableItem className="mb-4" onClick={sharedCallbackCached}>
-        ClickableItem
-      </ClickableItem>
+      <ClickableItem onClick={sharedCallbackCached}>ClickableItem</ClickableItem>
       <RenderComponentAsAProperty
         propComponent={<IAmUsedAsAsAProperty variant="defined near the consumer" />}
         variant="RenderComponentAsAProperty propComponent={<IAmUsedAsAsAProperty />}"

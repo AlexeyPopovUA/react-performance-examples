@@ -16,7 +16,6 @@ export const Example = () => {
     <ExampleBox>
       <StateDependentCounter externalValue={value} />
       <ClickableItem
-        className="mb-4"
         onClick={() => {
           setValue((v) => v + 1);
         }}
