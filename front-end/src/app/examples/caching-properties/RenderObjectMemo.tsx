@@ -13,5 +13,7 @@ const RenderObject = (props: { value: Record<string, unknown>; variant: string }
 };
 
 export const RenderObjectMemo = memo(RenderObject);
+RenderObjectMemo.displayName = 'RenderObjectMemo';
 
 export const RenderObjectMemoCompared = memo(RenderObject, isEqual);
+RenderObjectMemoCompared.displayName = 'RenderObjectMemoCompared';

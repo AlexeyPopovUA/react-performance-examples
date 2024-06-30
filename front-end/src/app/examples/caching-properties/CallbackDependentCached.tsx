@@ -16,3 +16,4 @@ const CallbackDependent = (props: Props) => {
 };
 
 export default React.memo(CallbackDependent);
+CallbackDependent.displayName = 'CallbackDependentCached';

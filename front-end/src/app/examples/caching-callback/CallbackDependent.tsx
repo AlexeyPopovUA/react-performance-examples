@@ -16,3 +16,4 @@ const CallbackDependent = (props: Props) => {
 };
 
 export default CallbackDependent;
+CallbackDependent.displayName = 'CallbackDependent';

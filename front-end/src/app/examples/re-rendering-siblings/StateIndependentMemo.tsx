@@ -7,3 +7,5 @@ const StateIndependent = () => {
 };
 
 export const StateIndependentMemo = React.memo(StateIndependent);
+
+StateIndependentMemo.displayName = 'StateIndependentMemo';

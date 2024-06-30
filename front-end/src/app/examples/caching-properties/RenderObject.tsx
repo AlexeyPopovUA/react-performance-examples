@@ -9,3 +9,5 @@ export const RenderObject = (props: { value: Record<string, unknown>; variant?: 
     </NonClickableItem>
   );
 };
+
+RenderObject.displayName = 'RenderObject';

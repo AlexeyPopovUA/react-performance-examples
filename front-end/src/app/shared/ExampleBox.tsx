@@ -8,3 +8,5 @@ export const ExampleBox = (props: PropsWithChildren<{}>) => {
     </div>
   );
 };
+
+ExampleBox.displayName = 'ExampleBox';

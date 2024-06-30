@@ -29,3 +29,5 @@ export const Example = () => {
     </ExampleBox>
   );
 };
+
+Example.displayName = 'Example';

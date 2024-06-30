@@ -17,3 +17,4 @@ const StateDependentCounter = (props: Props) => {
 };
 
 export default StateDependentCounter;
+StateDependentCounter.displayName = 'StateDependentCounter';

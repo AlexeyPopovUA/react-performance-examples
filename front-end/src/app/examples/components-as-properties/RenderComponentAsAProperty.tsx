@@ -22,3 +22,5 @@ export const RenderComponentAsAProperty = (props: Props) => {
     </NonClickableItem>
   );
 };
+
+RenderComponentAsAProperty.displayName = 'RenderComponentAsAProperty';

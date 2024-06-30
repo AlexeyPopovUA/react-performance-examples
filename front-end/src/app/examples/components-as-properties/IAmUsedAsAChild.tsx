@@ -9,3 +9,5 @@ export const IAmUsedAsAsAChild = (props: Props) => {
 
   return <NonClickableItem className="border-gray-300">IAmUsedAsAsAChild {props.variant}</NonClickableItem>;
 };
+
+IAmUsedAsAsAChild.displayName = 'IAmUsedAsAsAChild';
