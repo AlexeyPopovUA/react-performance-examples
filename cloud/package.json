@@ -1,0 +1,29 @@
+{
+  "name": "cloud",
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "rm -rf ./cdk.out",
+    "cdk-synth-stacks": "cdk synth",
+    "cdk-diff-stacks": "cdk diff",
+    "deploy": "cdk deploy react-* --require-approval=never",
+    "type-check": "tsc -p tsconfig.json --noEmit",
+    "update-dependencies": "npx npm-check-updates -u --packageFile package.json"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.6",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.9",
+    "aws-cdk": "^2.147.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.114.1-alpha.0",
+    "@aws-sdk/client-dynamodb": "^3.602.0",
+    "@aws-sdk/lib-dynamodb": "^3.602.0",
+    "@aws-solutions-constructs/aws-cloudfront-apigateway-lambda": "^2.60.0",
+    "aws-cdk-lib": "2.147.2",
+    "constructs": "^10.3.0",
+    "source-map-support": "^0.5.21"
+  }
+}

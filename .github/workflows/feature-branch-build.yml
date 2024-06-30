@@ -1,16 +1,20 @@
-name: Feature branch build
+name: Front-end pipeline
 
 on:
   push:
     branches:
       - '**'
+    paths:
+      - 'front-end/**'
+      - 'package-lock.json'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 env:
-  DEFAULT_BRANCH: main
-  AWS_HOSTING_S3_BUCKET: "react-performance-examples"
+  S3_HOSTING_BUCKET: react-performance-examples-hosting
+  CF_DISTRIBUTION_NAME: react-performance-examples
+  CF_INVALIDATION_WAIT: true
 
 jobs:
   build:
@@ -20,29 +24,25 @@ jobs:
       contents: read
 
     steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
       - name: Prepare variables
         run: echo SAFE_SOURCE_NAME=$(echo "${{ github.ref_name }}" | sed -r 's/[/.@_]+/-/g') >> $GITHUB_ENV
-
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Install runtime
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: npm
+          cache: 'npm'
 
       - name: Install
-        run: npm ci
-
-      - name: Checks
-        run: npm run lint
-
-      - name: Build random branch
         run: |
-          npm run build
+          npm ci -ws --include-workspace-root
+
+      - name: Build
+        run: npm run build -w front-end
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -50,10 +50,26 @@ jobs:
           aws-region: eu-west-1
           role-to-assume: ${{ vars.AWS_AUTH_ROLE }}
 
-#      - name: Publish web-app to S3
-#        if: env.SAFE_SOURCE_NAME == env.DEFAULT_BRANCH
-#        shell: bash {0}
-#        run: |
-#          set -e
-#          aws s3 rm --recursive s3://${{ env.S3_HOSTING_BUCKET }}/${{ env.SAFE_SOURCE_NAME }}/
-#          aws s3 sync ./out/ s3://${{ env.S3_HOSTING_BUCKET }}/${{ env.SAFE_SOURCE_NAME }} --delete
+      - name: Publish web-app to S3
+        shell: bash {0}
+        run: |
+          set -e
+          aws s3 rm --recursive s3://${{ env.S3_HOSTING_BUCKET }}/${{ env.SAFE_SOURCE_NAME }}/
+          aws s3 sync ./front-end/out/ s3://${{ env.S3_HOSTING_BUCKET }}/${{ env.SAFE_SOURCE_NAME }}
+
+      - name: Invalidate CF distribution cache
+        shell: bash
+        run: |
+          DISTRIBUTION_ID=$(aws cloudfront list-distributions \
+          | jq -r '.DistributionList.Items | map(select(.Comment | contains("${{ env.CF_DISTRIBUTION_NAME }}")).Id) | .[0]')
+
+          echo "Triggering invalidation for alias and version tag environments"
+          INVALIDATION=$(aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths "/*")
+          echo "Invalidation request: $INVALIDATION"
+
+          WAIT=${{ env.CF_INVALIDATION_WAIT }}
+          [ "$WAIT" != true ] && echo "Skipping waiting for invalidation completion" && exit 0
+
+          echo "Waiting for invalidation completion..."
+          INVALIDATION_ID=$(echo "$INVALIDATION" | jq -r '.Invalidation.Id')
+          aws cloudfront wait invalidation-completed --distribution-id "$DISTRIBUTION_ID" --id "$INVALIDATION_ID"

@@ -1,0 +1,55 @@
+name: Cloud pipeline
+
+on:
+  push:
+    branches:
+      - '**'
+    paths:
+      - 'cloud/**'
+      - 'package-lock.json'
+
+env:
+  DEFAULT_BRANCH: main
+  AWS_ACCOUNT: ${{ vars.AWS_ACCOUNT }}
+  AWS_DEPLOYMENT_REGION: ${{ vars.AWS_DEPLOYMENT_REGION }}
+  HOSTED_ZONE_ID: ${{ vars.HOSTED_ZONE_ID }}
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare variables
+        run: echo SAFE_SOURCE_NAME=$(echo "${{ github.ref_name }}" | sed -r 's/[/.@_]+/-/g') >> $GITHUB_ENV
+
+      - name: Install runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install, type-check, lint
+        run: |
+          npm ci --include-workspace-root
+          npm run -w cloud type-check
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: eu-west-1
+          role-to-assume: ${{ vars.AWS_AUTH_ROLE }}
+
+      - name: Deploy infrastructure
+        if: env.SAFE_SOURCE_NAME == env.DEFAULT_BRANCH
+        run: npm run deploy -w cloud
+
+      - name: Diff infrastructure
+        if: env.SAFE_SOURCE_NAME != env.DEFAULT_BRANCH
+        run: npm run cdk-diff-stacks -w cloud
