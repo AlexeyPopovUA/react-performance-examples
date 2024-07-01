@@ -19,6 +19,8 @@ export const Example = () => {
   );
 };
 
+Example.displayName = 'Example';
+
 type SubExampleProps = {
   externalComponent1: React.ReactNode;
   externalComponent2: React.ReactNode;
@@ -55,4 +57,4 @@ export const SubExample = (props: SubExampleProps) => {
   );
 };
 
-Example.displayName = 'Example';
+SubExample.displayName = 'SubExample';
