@@ -1,4 +1,3 @@
-import { BackButton } from '@/app/BackButton';
 import React from 'react';
 
 export default function ExamplesLayout({
@@ -6,10 +5,5 @@ export default function ExamplesLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <>
-      <BackButton />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
