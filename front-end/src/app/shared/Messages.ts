@@ -1,7 +1,7 @@
 export const Messages = {
   home: {
-    title: 'React 18 performance examples',
-    description: 'Web application with different React 18 performance examples',
+    title: 'React 19 performance examples',
+    description: 'Web application with different React 19 performance examples',
   },
   renderingSiblings: {
     title: 'Re-rendering siblings',
