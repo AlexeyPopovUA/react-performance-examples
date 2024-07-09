@@ -1,18 +1,17 @@
 import { Example } from '@/app/examples/caching-properties/Example';
 import { Metadata } from 'next';
 import { Header } from '@/app/Header';
-
-const description = 'Find out why some of properties cause re-rendering';
+import { Messages } from '@/app/shared/Messages';
 
 export const metadata: Metadata = {
-  title: 'Caching properties',
-  description,
+  title: Messages.cachingProperties.title,
+  description: Messages.cachingProperties.description,
 };
 
 export default function Home() {
   return (
     <>
-      <Header text={description} />
+      <Header text={Messages.cachingProperties.description} />
       <Example />
     </>
   );

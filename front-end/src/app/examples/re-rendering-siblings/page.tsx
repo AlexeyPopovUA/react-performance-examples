@@ -1,19 +1,17 @@
 import { Example } from '@/app/examples/re-rendering-siblings/Example';
 import { Metadata } from 'next';
 import { Header } from '@/app/Header';
-
-const description =
-  'Find out why sibling component are re-rendered when sharing state of their parent and how to control this';
+import { Messages } from '@/app/shared/Messages';
 
 export const metadata: Metadata = {
-  title: 'Re-rendering siblings',
-  description,
+  title: Messages.renderingSiblings.title,
+  description: Messages.renderingSiblings.description,
 };
 
 export default function Home() {
   return (
     <>
-      <Header text={description} />
+      <Header text={Messages.renderingSiblings.description} />
       <Example />
     </>
   );

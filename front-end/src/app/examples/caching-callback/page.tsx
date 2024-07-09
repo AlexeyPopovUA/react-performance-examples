@@ -1,18 +1,17 @@
 import { Example } from '@/app/examples/caching-callback/Example';
 import { Metadata } from 'next';
 import { Header } from '@/app/Header';
-
-const description = 'Explore performance improvements of components with callbacks as properties';
+import { Messages } from '@/app/shared/Messages';
 
 export const metadata: Metadata = {
-  title: 'Caching callback',
-  description,
+  title: Messages.cachingCallback.title,
+  description: Messages.cachingCallback.description,
 };
 
 export default function Home() {
   return (
     <>
-      <Header text={description} />
+      <Header text={Messages.cachingCallback.description} />
       <Example />
     </>
   );
