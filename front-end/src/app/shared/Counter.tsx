@@ -7,3 +7,5 @@ export const Counter = (props: Props) => (
     {props.value}
   </div>
 );
+
+Counter.displayName = 'Counter';
