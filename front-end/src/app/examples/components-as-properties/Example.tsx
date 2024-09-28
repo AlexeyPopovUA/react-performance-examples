@@ -4,17 +4,17 @@ import React, { useCallback, useState } from 'react';
 import StateDependentCounter from '@/app/shared/StateDependentCounter';
 import { ExampleBox } from '@/app/shared/ExampleBox';
 import { ClickableItem } from '@/app/shared/ClickableItem';
-import { IAmUsedAsAProperty } from '@/app/examples/components-as-properties/IAmUsedAsAProperty';
-import { RenderComponentAsAProperty } from '@/app/examples/components-as-properties/RenderComponentAsAProperty';
-import { IAmUsedAsAsAChild } from '@/app/examples/components-as-properties/IAmUsedAsAChild';
+import { UsedAsProperty } from '@/app/examples/components-as-properties/UsedAsProperty';
+import { RenderComponent } from '@/app/examples/components-as-properties/RenderComponent';
+import { UsedAsChild } from '@/app/examples/components-as-properties/UsedAsChild';
 
 export const Example = () => {
   console.log('Example');
 
   return (
     <SubExample
-      externalComponent1={<IAmUsedAsAProperty variant="externaly defined" />}
-      externalComponent2={<IAmUsedAsAsAChild variant="externaly defined" />}
+      externalComponent1={<UsedAsProperty variant="externaly defined" />}
+      externalComponent2={<UsedAsChild variant="externaly defined" />}
     />
   );
 };
@@ -39,20 +39,20 @@ export const SubExample = (props: SubExampleProps) => {
     <ExampleBox>
       <StateDependentCounter externalValue={value} />
       <ClickableItem onClick={sharedCallbackCached}>ClickableItem</ClickableItem>
-      <RenderComponentAsAProperty
-        propComponent={<IAmUsedAsAProperty variant="defined near the consumer" />}
-        variant="RenderComponentAsAProperty propComponent={<IAmUsedAsAsAProperty />}"
+      <RenderComponent
+        propComponent={<UsedAsProperty variant="defined near the consumer" />}
+        variant="RenderComponent propComponent={<UsedAsProperty />}"
       />
-      <RenderComponentAsAProperty
+      <RenderComponent
         propComponent={props.externalComponent1}
-        variant="RenderComponentAsAProperty propComponent={props.externalComponent}"
+        variant="RenderComponent propComponent={props.externalComponent}"
       />
-      <RenderComponentAsAProperty
+      <RenderComponent
         propComponent={props.externalComponent1}
-        variant="RenderComponentAsAProperty propComponent={props.externalComponent} + children"
+        variant="RenderComponent propComponent={props.externalComponent} + children"
       >
         {props.externalComponent2}
-      </RenderComponentAsAProperty>
+      </RenderComponent>
     </ExampleBox>
   );
 };

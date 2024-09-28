@@ -6,8 +6,8 @@ type Props = PropsWithChildren<{
   variant: string;
 }>;
 
-export const RenderComponentAsAProperty = (props: Props) => {
-  console.log(`RenderComponentAsAProperty ${props.variant}`);
+export const RenderComponent = (props: Props) => {
+  console.log(props.variant);
 
   return (
     <NonClickableItem className="mb-10">
@@ -23,4 +23,4 @@ export const RenderComponentAsAProperty = (props: Props) => {
   );
 };
 
-RenderComponentAsAProperty.displayName = 'RenderComponentAsAProperty';
+RenderComponent.displayName = 'RenderComponent';

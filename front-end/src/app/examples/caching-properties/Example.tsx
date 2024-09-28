@@ -1,11 +1,14 @@
 'use client';
 
-import { useCallback, useState } from 'react';
-import CallbackDependentCached from '@/app/examples/caching-properties/CallbackDependentCached';
+import { useCallback, useMemo, useState } from 'react';
+import { CallbackDependentCached } from '@/app/examples/caching-properties/CallbackDependentCached';
 import { ExampleBox } from '@/app/shared/ExampleBox';
 import StateDependentCounter from '@/app/shared/StateDependentCounter';
-import { RenderObject } from '@/app/examples/caching-properties/RenderObject';
-import { RenderObjectMemo, RenderObjectMemoCompared } from '@/app/examples/caching-properties/RenderObjectMemo';
+import {
+  RenderObject,
+  RenderObjectMemo,
+  RenderObjectMemoCompared,
+} from '@/app/examples/caching-properties/RenderObject';
 
 export const Example = () => {
   console.log('Example');
@@ -17,14 +20,16 @@ export const Example = () => {
   }, []);
 
   const obj = { test: 123 };
+  const objCached = useMemo(() => ({ test: 123 }), []);
 
   return (
     <ExampleBox>
       <StateDependentCounter externalValue={value} />
-      <CallbackDependentCached callback={callbackCached} variant="callbackCached" />
-      <RenderObject value={obj} variant="RenderObject" />
-      <RenderObjectMemo value={obj} variant="RenderObjectMemo" />
-      <RenderObjectMemoCompared value={obj} variant="RenderObjectMemoCompared" />
+      <CallbackDependentCached callback={callbackCached} variant="cachedCallback" />
+      <RenderObject value={obj} variant="RenderObject + obj" />
+      <RenderObjectMemo value={obj} variant="React.memo(RenderObject) + obj" />
+      <RenderObjectMemo value={objCached} variant="React.memo(RenderObject) + cachedObj" />
+      <RenderObjectMemoCompared value={obj} variant="React.memo(RenderObject, isEqual) + obj" />
     </ExampleBox>
   );
 };

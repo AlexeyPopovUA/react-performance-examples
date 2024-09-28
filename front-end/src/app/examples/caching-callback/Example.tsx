@@ -22,10 +22,10 @@ export const Example = () => {
   return (
     <ExampleBox>
       <StateDependentCounter externalValue={value} />
-      <CallbackDependent callback={sharedCallback} variant="sharedCallback" />
-      <CallbackDependentCached callback={sharedCallback} variant="sharedCallback" />
-      <CallbackDependent callback={sharedCallbackCached} variant="sharedCallbackCached" />
-      <CallbackDependentCached callback={sharedCallbackCached} variant="sharedCallbackCached" />
+      <CallbackDependent callback={sharedCallback} variant="callback" />
+      <CallbackDependentCached callback={sharedCallback} variant="callback" />
+      <CallbackDependent callback={sharedCallbackCached} variant="cachedCallback" />
+      <CallbackDependentCached callback={sharedCallbackCached} variant="cachedCallback" />
     </ExampleBox>
   );
 };

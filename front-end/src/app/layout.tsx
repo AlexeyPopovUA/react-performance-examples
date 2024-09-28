@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Header } from '@/app/Header';
 import React from 'react';
 import clsx from 'clsx';
 import { Footer } from '@/app/Footer';

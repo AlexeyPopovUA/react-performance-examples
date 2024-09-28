@@ -7,7 +7,7 @@ type Props = {
 };
 
 const CallbackDependent = (props: Props) => {
-  console.log(`React.memo(CallbackDependent) ${props.variant}`);
+  console.log(`React.memo(CallbackDependent) ${props.variant ? ` + ${props.variant}` : ''}`);
   return (
     <ClickableItem onClick={props.callback}>
       React.memo(CallbackDependent) {props.variant ? ` + ${props.variant}` : ''}
@@ -15,5 +15,5 @@ const CallbackDependent = (props: Props) => {
   );
 };
 
-export default React.memo(CallbackDependent);
-CallbackDependent.displayName = 'CallbackDependentCached';
+export const CallbackDependentCached = React.memo(CallbackDependent);
+CallbackDependentCached.displayName = 'CallbackDependentCached';
