@@ -31,14 +31,14 @@ export const SubExample = (props: SubExampleProps) => {
 
   const [value, setValue] = useState(0);
 
-  const sharedCallbackCached = useCallback(() => {
+  const cachedCallback = useCallback(() => {
     setValue((v) => v + 1);
   }, []);
 
   return (
     <ExampleBox>
       <StateDependentCounter externalValue={value} />
-      <ClickableItem onClick={sharedCallbackCached}>ClickableItem</ClickableItem>
+      <ClickableItem onClick={cachedCallback}>ClickableItem</ClickableItem>
       <RenderComponent
         propComponent={<UsedAsProperty variant="defined near the consumer" />}
         variant="RenderComponent propComponent={<UsedAsProperty />}"

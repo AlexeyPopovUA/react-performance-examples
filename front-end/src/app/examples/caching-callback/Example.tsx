@@ -11,21 +11,21 @@ export const Example = () => {
 
   const [value, setValue] = useState(0);
 
-  const sharedCallback = () => {
+  const callback = () => {
     setValue((v) => v + 1);
   };
 
-  const sharedCallbackCached = useCallback(() => {
+  const cachedCallback = useCallback(() => {
     setValue((v) => v + 1);
   }, []);
 
   return (
     <ExampleBox>
       <StateDependentCounter externalValue={value} />
-      <CallbackDependent callback={sharedCallback} variant="callback" />
-      <CallbackDependentCached callback={sharedCallback} variant="callback" />
-      <CallbackDependent callback={sharedCallbackCached} variant="cachedCallback" />
-      <CallbackDependentCached callback={sharedCallbackCached} variant="cachedCallback" />
+      <CallbackDependent callback={callback} variant="callback" />
+      <CallbackDependentCached callback={callback} variant="callback" />
+      <CallbackDependent callback={cachedCallback} variant="cachedCallback" />
+      <CallbackDependentCached callback={cachedCallback} variant="cachedCallback" />
     </ExampleBox>
   );
 };

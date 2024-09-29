@@ -15,7 +15,7 @@ export const Example = () => {
 
   const [value, setValue] = useState(0);
 
-  const callbackCached = useCallback(() => {
+  const cachedCallback = useCallback(() => {
     setValue((v) => v + 1);
   }, []);
 
@@ -25,7 +25,7 @@ export const Example = () => {
   return (
     <ExampleBox>
       <StateDependentCounter externalValue={value} />
-      <CallbackDependentCached callback={callbackCached} variant="cachedCallback" />
+      <CallbackDependentCached callback={cachedCallback} variant="cachedCallback" />
       <RenderObject value={obj} variant="RenderObject + obj" />
       <RenderObjectMemo value={obj} variant="React.memo(RenderObject) + obj" />
       <RenderObjectMemo value={objCached} variant="React.memo(RenderObject) + cachedObj" />
