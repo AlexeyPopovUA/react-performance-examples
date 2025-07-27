@@ -7,7 +7,7 @@ export function Hero() {
         techniques. Explore how component re-rendering works in different scenarios and learn best practices for
         building performant React applications.
       </p>
-      <p className="text-lg">
+      <p className="mb-4 text-lg">
         Learn more about React 18 vs React 19 performance in{' '}
         <a
           href="https://oleksiipopov.com/blog/react-18-vs-react-19/"
@@ -18,6 +18,18 @@ export function Hero() {
           this detailed comparison article
         </a>
         .
+      </p>
+      <p className="text-lg">
+        Compare with the{' '}
+        <a
+          href="https://full-rc-upgrade.dev.react-performance-examples.examples.oleksiipopov.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 underline hover:text-blue-800"
+        >
+          React 19 version of this demo
+        </a>
+        {' '}to see the performance improvements.
       </p>
     </section>
   );
