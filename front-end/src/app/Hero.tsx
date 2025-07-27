@@ -2,10 +2,13 @@ export function Hero() {
   return (
     <section className="mb-16 mt-8 max-w-4xl text-center">
       <h1 className="mb-4 text-4xl font-bold">React 18 Performance Examples</h1>
-      <p className="mb-6 text-lg text-gray-600">
+      <p className="mb-4 text-lg text-gray-600">
         This interactive demo application showcases various React 18 rendering patterns and performance optimization
         techniques. Explore how component re-rendering works in different scenarios and learn best practices for
         building performant React applications.
+      </p>
+      <p className="mb-6 text-lg font-semibold text-gray-700">
+        💡 Open your browser's developer console to see rendering logs and performance metrics!
       </p>
       <p className="mb-4 text-lg">
         Learn more about React 18 vs React 19 performance in{' '}
