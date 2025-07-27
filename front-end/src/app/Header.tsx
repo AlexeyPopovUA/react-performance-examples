@@ -6,8 +6,8 @@ type Props = {
 };
 
 export const Header = ({ text }: Props) => (
-  <header className="flex w-full items-center justify-items-center gap-4 border-b border-gray-300 px-4 py-6 font-mono text-lg">
+  <header className="flex w-full items-center gap-4 border-b border-gray-300 px-4 py-6 font-mono text-lg">
     <BackButton />
-    <div>{text}</div>
+    <div className="flex-1 overflow-hidden text-ellipsis">{text}</div>
   </header>
 );

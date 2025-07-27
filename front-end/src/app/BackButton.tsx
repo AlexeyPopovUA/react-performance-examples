@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const BackButton = () => (
   <Link
-    className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-50 transition-colors hover:bg-amber-100"
+    className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-amber-50 transition-colors hover:bg-amber-100"
     href="/"
     aria-label="Go back to home"
   >
