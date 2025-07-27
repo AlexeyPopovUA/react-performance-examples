@@ -8,26 +8,26 @@ import type { Metadata } from 'next';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://react-performance-examples.oleksiipopov.com'),
+  metadataBase: new URL('https://https://full-rc-upgrade.dev.react-performance-examples.examples.oleksiipopov.com/'),
   title: {
-    default: 'React 18 Performance Examples - Interactive Demo',
-    template: '%s | React 18 Performance Examples',
+    default: 'React 19 Performance Examples - Interactive Demo with React Compiler',
+    template: '%s | React 19 Performance Examples',
   },
-  description: 'Explore React 18 rendering patterns and performance optimization techniques through interactive examples. Learn about component re-rendering, memoization, and best practices.',
-  keywords: ['React 18', 'React performance', 'React optimization', 'React rendering', 'React memoization', 'React examples'],
+  description: 'Explore React 19 rendering patterns with automatic memoization from the React Compiler. Learn how React 19 optimizes performance without manual optimization techniques.',
+  keywords: ['React 19', 'React Compiler', 'React performance', 'React optimization', 'React rendering', 'automatic memoization', 'React examples'],
   authors: [{ name: 'Oleksii Popov' }],
   openGraph: {
-    title: 'React 18 Performance Examples - Interactive Demo',
-    description: 'Explore React 18 rendering patterns and performance optimization techniques through interactive examples.',
-    url: 'https://react-performance-examples.oleksiipopov.com',
+    title: 'React 19 Performance Examples - Interactive Demo with React Compiler',
+    description: 'Explore React 19 rendering patterns with automatic memoization from the React Compiler.',
+    url: 'https://https://full-rc-upgrade.dev.react-performance-examples.examples.oleksiipopov.com/',
     siteName: 'React Performance Examples',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'React 18 Performance Examples - Interactive Demo',
-    description: 'Explore React 18 rendering patterns and performance optimization techniques through interactive examples.',
+    title: 'React 19 Performance Examples - Interactive Demo with React Compiler',
+    description: 'Explore React 19 rendering patterns with automatic memoization from the React Compiler.',
   },
   robots: {
     index: true,

@@ -1,7 +1,7 @@
 export const Messages = {
   home: {
-    title: 'React 19 Performance Examples - Interactive Demo',
-    description: 'Web application with different React 19 performance examples',
+    title: 'React 19 Performance Examples - Interactive Demo with React Compiler',
+    description: 'Explore React 19 rendering patterns with automatic memoization from the React Compiler. Learn how React 19 optimizes performance without manual optimization techniques.',
   },
   renderingSiblings: {
     title: 'Re-rendering siblings',
