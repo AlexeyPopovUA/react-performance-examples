@@ -1,6 +1,7 @@
 import { HomeNavLink } from '@/app/HomeNavLink';
 import type { Metadata } from 'next';
 import { Messages } from '@/app/shared/Messages';
+import { Hero } from '@/app/Hero';
 
 export const metadata: Metadata = {
   title: Messages.home.title,
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="mb-32 grid text-center lg:mt-32 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+    <>
+      <Hero />
+      <div className="mb-32 grid text-center lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
       <HomeNavLink
         path="/examples/re-rendering-siblings/"
         label={Messages.renderingSiblings.title}
@@ -31,5 +34,6 @@ export default function Home() {
         description={Messages.componentsAsProperties.description}
       />
     </div>
+    </>
   );
 }

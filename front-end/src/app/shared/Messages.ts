@@ -1,7 +1,7 @@
 export const Messages = {
   home: {
-    title: 'React 18 performance examples',
-    description: 'Web application with different React 18 performance examples',
+    title: 'React 18 Performance Examples - Interactive Demo',
+    description: 'Explore React 18 rendering patterns and performance optimization techniques through interactive examples. Learn about component re-rendering, memoization, and best practices.',
   },
   renderingSiblings: {
     title: 'Re-rendering siblings',
